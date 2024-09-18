@@ -39,25 +39,16 @@ jobs:
       # Start the test execution
       #########################################################################
       - name: Full Test Execution
-        if: ${{inputs.execution_type}} == Full Execution
+        if: ${{inputs.execution_type == 'Full Execution'}}
         run: |
-          echo "${{inputs.execution_type}}"
-          echo "${{inputs.execution_type}} == Full Execution"
-          echo '${{inputs.execution_type}} == "Full Execution"'
           python start_test.py -f
 
       - name: Test Execution with only step 5
-        if: ${{inputs.execution_type}} == Only with step 5
+        if: ${{inputs.execution_type == 'Only with step 5'}}
         run: |
-          echo "${{inputs.execution_type}}"
-          echo "${{inputs.execution_type}} == Only with step 5"
-          echo '${{inputs.execution_type}} == "Only with step 5"'
           python start_test.py --only5
 
       - name: Test Execution with only step 6
-        if: ${{inputs.execution_type}} == Only with step 6
+        if: ${{inputs.execution_type == 'Only with step 6'}}
         run: |
-          echo "${{inputs.execution_type}}"
-          echo "${{inputs.execution_type}} == Only with step 6"
-          echo '${{inputs.execution_type}} == "Only with step 6"'
           python start_test.py --only6
