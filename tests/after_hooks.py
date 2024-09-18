@@ -8,5 +8,5 @@ conf = config.config.Config
 class AfterHooks():
     '''After test hooks class'''
 
-    def AfterTest():
-        conf.Driver.Quit()
+    def AfterAll():
+        conf.Driver.quit

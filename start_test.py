@@ -3,9 +3,10 @@
 import argparse
 
 import config.config
-from tests.tests import GoogleFinanceTest
+from tests.before_hooks import BeforeHooks
+from tests.after_hooks import AfterHooks
+from tests.test_google import test_google_finance
 from utils.enums import ExecutionType
-from tests import *
 
 
 def ParseArguments():
@@ -55,4 +56,7 @@ if __name__ == '__main__':
     else:
         config.config.Config.Selected_Option = ExecutionType.FULL
         print(f'Full execution selected!')
-    GoogleFinanceTest()
+
+    BeforeHooks.BeforeAll()
+    test_google_finance()
+    AfterHooks.AfterAll()
