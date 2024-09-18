@@ -13,14 +13,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Created Page object model structure
     - Created hooks file
     - Created google finance test case
-### Changed
 - **Finsih_test_**
     - Updaed test case
     - Renamed test file
     - Renamed starter file
     - Added Selenium and updated related code
     - Added dependency file
+### Changed
 ### Deprecated
 ### Removed
 ### Fixed
+- **Fix_Workflow_**
+    - Fixed test execution github action
 ### Security
