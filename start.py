@@ -2,10 +2,12 @@
 
 import argparse
 
+from pytest import Session
+import pytest
+
 import config.config
-from tests.before_hooks import BeforeHooks
-from tests.after_hooks import AfterHooks
-from tests.test_google import test_google_finance
+# import conftest
+from tests.test_google import *
 from utils.enums import ExecutionType
 
 
@@ -57,6 +59,4 @@ if __name__ == '__main__':
         config.config.Config.Selected_Option = ExecutionType.FULL
         print(f'Full execution selected!')
 
-    BeforeHooks.BeforeAll()
-    test_google_finance()
-    AfterHooks.AfterAll()
+    pytest.main(['-s'])

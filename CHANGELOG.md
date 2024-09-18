@@ -20,6 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Added Selenium and updated related code
     - Added dependency file
 ### Changed
+- **Add_assertion_to_test**
+    - Spit test case to steps
+    - Converted hooks to pytest format
+    - Converted execution to use pytest
+    - Renamed starter file
 ### Deprecated
 ### Removed
 ### Fixed
