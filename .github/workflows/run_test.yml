@@ -3,8 +3,7 @@ name: Test executor
 on:
   # Triggers the workflow on 1 am PST every day
   schedule:
-    # - cron: '0 9 * * *'
-    - cron: '*/12 * * * *'
+    - cron: '0 9 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -42,14 +41,14 @@ jobs:
       - name: Full Test Execution
         if: ${{ !contains(inputs.execution_type, 'Only with step 5') && !contains(inputs.execution_type, 'Only with step 6') }}
         run: |
-          python start_test.py -f
+          python start.py -f
 
       - name: Test Execution with only step 5
         if: ${{ inputs.execution_type == 'Only with step 5' }}
         run: |
-          python start_test.py --only5
+          python start.py --only5
 
       - name: Test Execution with only step 6
         if: ${{ inputs.execution_type == 'Only with step 6' }}
         run: |
-          python start_test.py --only6
+          python start.py --only6

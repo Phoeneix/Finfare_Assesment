@@ -1,11 +1,14 @@
 '''Starter of the Test'''
 
 import argparse
+import sys
+
+from pytest import Session
+import pytest
 
 import config.config
-from tests.before_hooks import BeforeHooks
-from tests.after_hooks import AfterHooks
-from tests.test_google import test_google_finance
+# import conftest
+from tests.test_google import *
 from utils.enums import ExecutionType
 
 
@@ -57,6 +60,11 @@ if __name__ == '__main__':
         config.config.Config.Selected_Option = ExecutionType.FULL
         print(f'Full execution selected!')
 
-    BeforeHooks.BeforeAll()
-    test_google_finance()
-    AfterHooks.AfterAll()
+    exit_code = pytest.main(['-s'])
+    if exit_code == 0:
+        print('All tests passed!')
+    else:
+        print('Some tests failed.')
+        print(f'Exit_code: "{exit_code}"')
+        sys.exit(exit_code)
+

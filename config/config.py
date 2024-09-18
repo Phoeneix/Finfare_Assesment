@@ -11,3 +11,6 @@ class Config():
 
     # Test step to skip
     Selected_Option:ExecutionType = ExecutionType.FULL
+
+    # Temp storage
+    Temp_List_Data:list = []
