@@ -40,7 +40,7 @@ jobs:
       # Start the test execution
       #########################################################################
       - name: Full Test Execution
-        if: ${{ !contains(inputs.execution_type) }} || ${{ inputs.execution_type == 'Full Execution' }}
+        if: ${{ !contains(inputs.execution_type, '') }} || ${{ inputs.execution_type == 'Full Execution' }}
         run: |
           python start_test.py -f
 
