@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Converted hooks to pytest format
     - Converted execution to use pytest
     - Renamed starter file
+    - Added pytest to dependencies
 ### Deprecated
 ### Removed
 ### Fixed
