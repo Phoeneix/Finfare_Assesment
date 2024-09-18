@@ -1,6 +1,7 @@
 '''Starter of the Test'''
 
 import argparse
+import sys
 
 from pytest import Session
 import pytest
@@ -59,4 +60,11 @@ if __name__ == '__main__':
         config.config.Config.Selected_Option = ExecutionType.FULL
         print(f'Full execution selected!')
 
-    pytest.main(['-s'])
+    exit_code = pytest.main(['-s'])
+    if exit_code == 0:
+        print('All tests passed!')
+    else:
+        print('Some tests failed.')
+        print(f'Exit_code: "{exit_code}"')
+        sys.exit(exit_code)
+

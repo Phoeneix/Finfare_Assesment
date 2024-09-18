@@ -41,8 +41,7 @@ jobs:
       - name: Full Test Execution
         if: ${{ !contains(inputs.execution_type, 'Only with step 5') && !contains(inputs.execution_type, 'Only with step 6') }}
         run: |
-          pytest
-          # python start.py -f
+          python start.py -f
 
       - name: Test Execution with only step 5
         if: ${{ inputs.execution_type == 'Only with step 5' }}
