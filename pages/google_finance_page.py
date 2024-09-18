@@ -1,5 +1,6 @@
 '''The google finance page'''
-import selenium
+from time import sleep
+from selenium.webdriver.common.by import By
 
 import config.config
 
@@ -17,21 +18,28 @@ class GoogleFinancePage():
     Name = 'Google Finance'
 
     def IsPageLoaded() -> bool:
-        return GoogleFinancePage.IsPageLoaded()
+        return conf.Driver.find_element(
+            value = TEXT_LOCATOR,
+            by = By.ID).is_displayed()
 
 
-    def WaitForPageToLoad() -> bool:
-        return GoogleFinancePage.GetSymbolList()
+    def WaitForPageToLoad(timeout:int = 30) -> bool:
+        timer:int = 0
+        while not GoogleFinancePage.IsPageLoaded() & timer < timeout:
+            timer += 2
+            sleep(2)
+        return GoogleFinancePage.IsPageLoaded()       
 
 
     def GetSymbolList() -> list:
         results = []
-        elements:list[Webelement] = conf.Driver.Findelements(
-            locator = SYMBOL_LOCATOR,
-            By = By.XPATH)
+        elements:list = conf.Driver.find_elements(
+            value = SYMBOL_LOCATOR,
+            by = By.XPATH)
 
         # Save the text of the elements into a list
         for element in elements:
             results.append(element.text)
 
         return results
+

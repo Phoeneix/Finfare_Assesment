@@ -1,4 +1,6 @@
 '''Before test hooks'''
+from selenium.webdriver import Chrome, ChromeOptions
+
 import config.config
 
 
@@ -8,5 +10,7 @@ conf = config.config.Config
 class BeforeHooks():
     '''Before test hooks class'''
 
-    def BeforeTest():
-        conf.Driver = new Chromedriver()
+    def BeforeAll():
+        options = ChromeOptions()
+        # options.add_argument('--headless')
+        conf.Driver = Chrome(options)

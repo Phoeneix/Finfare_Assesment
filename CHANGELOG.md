@@ -4,7 +4,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 ### Added
-### Changed
 - **Base_design**
     - Created Pull_request_template
     - Created git workflow for test execution
@@ -14,6 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Created Page object model structure
     - Created hooks file
     - Created google finance test case
+### Changed
+- **Finsih_test_**
+    - Updaed test case
+    - Renamed test file
+    - Renamed starter file
+    - Added Selenium and updated related code
+    - Added dependency file
 ### Deprecated
 ### Removed
 ### Fixed
