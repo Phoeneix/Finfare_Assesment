@@ -41,6 +41,7 @@ jobs:
       - name: Full Test Execution
         if: ${{inputs.execution_type}} == "Full Execution"
         run: |
+          echo "${{inputs.execution_type}}"
           python start_test.py -f
 
       - name: Test Execution with only step 5
