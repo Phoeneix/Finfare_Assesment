@@ -7,7 +7,7 @@ class ExecutionType(Enum):
 
     FULL = 1
     ONLY5 = 2
-    ONLY6 = 2
+    ONLY6 = 3
 
     @staticmethod
     def FromStr(label):

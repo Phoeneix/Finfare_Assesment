@@ -19,7 +19,7 @@ def test_google_finance():
     is_loaded = GoogleFinancePage.WaitForPageToLoad(timeout = 10)
     assert is_loaded, f'Page "{GoogleFinancePage.Name}" did not load!'
 
-    # 3. Retrieves the stock symbols listed under the section “You may be interested in info”
+    # 3. Retrieves the stock symbols listed under the section "You may be interested in info"
     stock_symbols_present = GoogleFinancePage.GetSymbolList()
 
     # 4. Compare the stock symbols retrieved from (3) with given test data
