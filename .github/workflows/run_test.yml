@@ -41,12 +41,14 @@ jobs:
       - name: Full Test Execution
         if: ${{inputs.execution_type}} == "Full Execution"
         run: |
-          python test_execution.py -f
+          python start_test.py -f
+
       - name: Test Execution with only step 5
         if: ${{inputs.execution_type}} == "Only with step 5"
         run: |
-          python test_execution.py --only5
+          python start_test.py --only5
+
       - name: Test Execution with only step 6
         if: ${{inputs.execution_type}} == "Only with step 6"
         run: |
-          python test_execution.py --only6
+          python start_test.py --only6

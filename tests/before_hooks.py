@@ -12,5 +12,5 @@ class BeforeHooks():
 
     def BeforeAll():
         options = ChromeOptions()
-        # options.add_argument('--headless')
+        options.add_argument('--headless')
         conf.Driver = Chrome(options)
