@@ -1,4 +1,4 @@
-'''The google finance page'''
+'''The page base'''
 from time import sleep
 from selenium.webdriver.common.by import By
 
