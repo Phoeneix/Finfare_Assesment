@@ -19,15 +19,18 @@ def test_open_page_in_chrome():
 def test_check_if_page_loaded():
     # 2. Verifies the page is loaded by asserting the page title
     print('\n\n======== Step 2. - Verifies the page is loaded by asserting the page title ========')
-    is_loaded = GoogleFinancePage.WaitForPageToLoad(timeout = 10)
-    print(f'\nIs page loaded: {is_loaded}')
-    assert is_loaded, f'Page "{GoogleFinancePage.Name}" did not load!'
+    google_finance_page = GoogleFinancePage()
+    is_loaded = google_finance_page.WaitForPageToLoad(timeout = 10)
+    print(f'\nPage Name: {google_finance_page.page_name}')
+    print(f'Is page loaded: {is_loaded}')
+    assert is_loaded, f'Page "{google_finance_page.page_name}" did not load!'
 
 
 def test_read_stock_symbols():
     # 3. Retrieves the stock symbols listed under the section "You may be interested in info"
     print('\n\n======== Step 3. - Retrieves the stock symbols listed under the section "You may be interested in info ========')
-    conf.Temp_List_Data = GoogleFinancePage.GetSymbolList()
+    google_finance_page = GoogleFinancePage()
+    conf.Temp_List_Data = google_finance_page.GetSymbolList()
     print(f'\nSymbols: {conf.Temp_List_Data}')
 
 

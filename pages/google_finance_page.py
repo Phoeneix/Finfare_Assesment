@@ -3,35 +3,25 @@ from time import sleep
 from selenium.webdriver.common.by import By
 
 import config.config
+from pages.page_base import PageBase
 
 
 # Locators
-TEXT_LOCATOR = 'smart-watchlist-title' # ID
 SYMBOL_LOCATOR = '//div[@id="smart-watchlist-title"]/../ul/li//div/div/div[1]/div/div/div' # XPATH
 
 # Local Variables
 conf = config.config.Config
 
-class GoogleFinancePage():
+class GoogleFinancePage(PageBase):
 
-    property
-    Name = 'Google Finance'
-
-    def IsPageLoaded() -> bool:
-        return conf.Driver.find_element(
-            value = TEXT_LOCATOR,
-            by = By.ID).is_displayed()
+    def __init__(self):
+        super().__init__(
+            name = 'Google Finance',
+            is_loaded_locator = 'smart-watchlist-title',
+            by = By.ID)
 
 
-    def WaitForPageToLoad(timeout:int = 30) -> bool:
-        timer:int = 0
-        while not GoogleFinancePage.IsPageLoaded() & timer < timeout:
-            timer += 2
-            sleep(2)
-        return GoogleFinancePage.IsPageLoaded()       
-
-
-    def GetSymbolList() -> list:
+    def GetSymbolList(self) -> list:
         results = []
         elements:list = conf.Driver.find_elements(
             value = SYMBOL_LOCATOR,
