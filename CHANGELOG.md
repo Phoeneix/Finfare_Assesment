@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Added dependency file
 - **Add_pagefactory_**
     - Added Page base as a parent for all page object
+    - Added "Skip Verification" option to execution
 ### Changed
 - **Add_assertion_to_test**
     - Split test case to steps

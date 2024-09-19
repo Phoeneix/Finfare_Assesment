@@ -37,17 +37,20 @@ def test_read_stock_symbols():
 def test_compare_symbols():
     # 4. Compare the stock symbols retrieved from (3) with given test data
     print('\n\n======== Step 4. - Compare the stock symbols retrieved from (3) with given test data "["NFLX","MSFT", "TSLA"]" ========')
-    stock_symbols_present = conf.Temp_List_Data
-    print(f'\nSymbols equal with test data: {stock_symbols_present == test_data}')
-    print(f'Symbols: {stock_symbols_present}')
-    print(f'Test Data: {test_data}')
-    assert stock_symbols_present == test_data,  f'The stock symbols on the webpage "{stock_symbols_present}" are not matching the expected list "{test_data}"'
+    if conf.Selected_Option not in [ExecutionType.NO_VERIFICATION]:
+        stock_symbols_present = conf.Temp_List_Data
+        print(f'\nSymbols equal with test data: {stock_symbols_present == test_data}')
+        print(f'Symbols: {stock_symbols_present}')
+        print(f'Test Data: {test_data}')
+        assert stock_symbols_present == test_data,  f'The stock symbols on the webpage "{stock_symbols_present}" are not matching the expected list "{test_data}"'
+    else:
+        print('\nSkipped...')
 
 
 def test_print_extra_symbols():
     # 5. Print all stock symbols that are in (3) but not in given test data
     print('\n\n======== Step 5. - Print all stock symbols that are in (3) but not in given test data ========')
-    if conf.Selected_Option in [ExecutionType.ONLY5, ExecutionType.FULL]:
+    if conf.Selected_Option in [ExecutionType.ONLY5, ExecutionType.FULL, ExecutionType.NO_VERIFICATION]:
         print('\nSymbols on the page that are not expected:')
         stock_symbols_present = conf.Temp_List_Data
         for stock_symbol in stock_symbols_present:
@@ -60,7 +63,7 @@ def test_print_extra_symbols():
 def test_print_missing_symbols():
     # 6. Print all stock symbols that are in given test data but not in (3)
     print('\n\n======== Step 6. - Print all stock symbols that are in given test data but not in (3) ========')
-    if conf.Selected_Option in [ExecutionType.ONLY6, ExecutionType.FULL]:
+    if conf.Selected_Option in [ExecutionType.ONLY6, ExecutionType.FULL, ExecutionType.NO_VERIFICATION]:
         print('\nSymbols not present on the page but are expected:')
         stock_symbols_present = conf.Temp_List_Data
         for stock_symbol in test_data:

@@ -35,6 +35,11 @@ def ParseArguments():
                         required=False,
                         action='store_true')
 
+    parser.add_argument('-v', '--skip_verification',
+                        help='Execute the test without step 4',
+                        required=False,
+                        action='store_true')
+
     parser.add_argument('-f', '--full',
                         help='Execute the test with only step 5',
                         required=False,
@@ -55,6 +60,9 @@ if __name__ == '__main__':
         print(f'Test execution with only step 5 verification selected!')
     elif args.only6:
         config.config.Config.Selected_Option = ExecutionType.ONLY6
+        print(f'Test execution with only step 6 verification selected!')
+    elif args.skip_verification:
+        config.config.Config.Selected_Option = ExecutionType.NO_VERIFICATION
         print(f'Test execution with only step 6 verification selected!')
     else:
         config.config.Config.Selected_Option = ExecutionType.FULL
