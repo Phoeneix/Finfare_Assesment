@@ -15,6 +15,7 @@ on:
         default: 'Full Execution'
         options: 
         - Full Execution
+        - Skip Verification
         - Only with step 5
         - Only with step 6
 
@@ -39,9 +40,14 @@ jobs:
       # Start the test execution
       #########################################################################
       - name: Full Test Execution
-        if: ${{ !contains(inputs.execution_type, 'Only with step 5') && !contains(inputs.execution_type, 'Only with step 6') }}
+        if: ${{ !contains(inputs.execution_type, 'Only with step 5') && !contains(inputs.execution_type, 'Only with step 6') && !contains(inputs.execution_type, 'Skip Verification') }}
         run: |
-          python start.py -f
+          python start.py --full
+
+      - name: Test Execution without verification
+        if: ${{ inputs.execution_type == 'Skip Verification' }}
+        run: |
+          python start.py --skip_verification
 
       - name: Test Execution with only step 5
         if: ${{ inputs.execution_type == 'Only with step 5' }}
